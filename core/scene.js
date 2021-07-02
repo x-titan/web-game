@@ -17,7 +17,7 @@ export default class Scene {
    * @param {HTMLCanvasElement} config.canvas
    */
   constructor({ canvas }) {
-    if (is.empty(canvas)) throw new TypeError("Bad canvas")
+    if (!(canvas instanceof HTMLCanvasElement)) throw new TypeError("Bad canvas")
     this.#ctx = (this.#canvas = canvas).getContext("2d")
   }
 
@@ -30,9 +30,12 @@ export default class Scene {
   }
   /** @param {number} delta */
   tick(delta) {
-    this.#ctx.clearRect(0, 0, this.#canvas.width, this.#canvas.height);
+    this.clear()
     this.#ctx.font = "32px"
     this.#ctx.fillText("Tick: " + (delta * 1000), 0, 0)
+  }
+  clear() {
+    this.#ctx.clearRect(0, 0, this.#canvas.width, this.#canvas.height)
   }
   //#endregion
 

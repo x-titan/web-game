@@ -6,7 +6,7 @@ import Noise from './core/noise.js'
 import { Loop } from './core/loop.js'
 import types from "./utils/types.js"
 
-export default {
+export {
   Engine,
   Scene,
   Vector2,
