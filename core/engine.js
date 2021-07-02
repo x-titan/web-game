@@ -1,12 +1,13 @@
-const { tools } = require("nonametitan_toolkit"),
-  Scene = require("./scene.js")
-const { is } = tools
+import is from "../utils/types.js"
+import Scene from "./scene.js"
+
+const isScene = Scene.isScene
 
 //#region Types
 /** @typedef {{ init: (scene: Scene) => void }} sceneConfig */
 //#endregion
 
-module.exports = class Engine {
+export default class Engine {
   /** @type {Scene} */ #scene
   #inited = false
   constructor() { }
@@ -18,15 +19,15 @@ module.exports = class Engine {
    */
   init(config) {
     if (this.#inited || is.empty(config)) return false
-    if (Scene.isScene(config.scene)) this.LoadScene(config.scene)
+    if (isScene(config.scene)) this.LoadScene(config.scene)
     if (!is.empty(config.sceneConfig)) this.initScene(config.sceneConfig)
     if (!is.empty(config.init)) config.init(this)
     return this.#inited = true
   }
-  LoadScene(scene) { if (Scene.isScene(scene)) this.#scene = scene }
+  LoadScene(scene) { if (isScene(scene)) this.#scene = scene }
   /** @param {sceneConfig} config */
   initScene(config) {
-    if (Scene.isScene(this.#scene))
+    if (isScene(this.#scene))
       return this.#scene.init(config)
     return false
   }

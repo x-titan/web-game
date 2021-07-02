@@ -1,5 +1,4 @@
-const { tools } = require("nonametitan_toolkit"),
-  { is } = tools;
+import is from "../utils/types.js"
 
 //#region Types
 /** @typedef {number} n */
@@ -7,7 +6,7 @@ const { tools } = require("nonametitan_toolkit"),
 
 const s_c = (i = 0) => 0.5 * (1.0 - Math.cos(i * Math.PI)), P_YB = 4, P_Y = 1 << P_YB, P_ZB = 8, P_Z = 1 << P_ZB, P_ = 4095, fl = Math.floor, p_oct = 4, p_amp = 0.5;
 
-module.exports = class Noise {
+export default class Noise {
 
   //#region Private Params
   /**@type {n}*/#m;/**@type {n}*/#a;/**@type {n}*/#c

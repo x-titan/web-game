@@ -1,5 +1,4 @@
-const { tools } = require('nonametitan_toolkit'),
-  { is } = tools
+import is from "../utils/types.js"
 
 //#region Types
 /** @typedef {number} n */
@@ -14,7 +13,7 @@ const { tools } = require('nonametitan_toolkit'),
 
 let k = requestAnimationFrame
 
-class Loop {
+export class Loop {
 
   //#region Private
   /** @type {n} */ #z
@@ -42,7 +41,7 @@ class Loop {
 
 }
 
-class LoopMachine extends Loop {
+export class LoopMachine extends Loop {
   /**
    * @param {{ render: _fn, draw: _fn }} fn
    * @param { _p } opt
@@ -50,8 +49,6 @@ class LoopMachine extends Loop {
   constructor(fn, opt) {
     let r = fn.render, d = fn.draw
     if (!is.func(r) || !is.func(d)) throw new TypeError("Bad render functions")
-    super((T) => { r(T / 1000); d(1000 / T) }, opt)
+    super(T => { r(T / 1000); d(1000 / T) }, opt)
   }
 }
-
-module.exports = { Loop, LoopMachine }

@@ -1,11 +1,10 @@
-const { tools } = require("nonametitan_toolkit"),
-  { is } = tools
+import is from "../utils/types.js"
 
 //#region Types
 /** @typedef {{ init: (scene: Scene) => void }} sceneConfig */
 //#endregion
 
-class Scene {
+export default class Scene {
 
   //#region Private
   /** @type {HTMLCanvasElement} */ #canvas
@@ -47,5 +46,3 @@ class Scene {
   //#endregion
 
 }
-
-module.exports = Scene

@@ -1,10 +1,10 @@
-const { Vector2 } = require("./vector.js")
+import { Vector2 } from "./vector.js"
 
 //#region Types
 /** @typedef {number} n */
 //#endregion
-
-class Sprite2D {
+ 
+export class Sprite2D {
 
   //#region Private
   /** @type {Vector2} */ #pos
@@ -51,6 +51,3 @@ class Sprite2D {
   //#endregion
 
 }
-
-
-module.exports = { Sprite2D }

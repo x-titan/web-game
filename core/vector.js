@@ -1,7 +1,6 @@
-const { tools } = require('nonametitan_toolkit'),
-  { is } = tools
+import is from "../utils/types.js"
 
-class Vector2 {
+export class Vector2 {
   constructor(x = 0, y = 0) { this.x = parseInt(x); this.y = parseInt(y) }
   set(x = 0, y = 0) { this.x = x || 0; this.y = y || 0 }
   setX(x = 0) { this.x = x || 0 }
@@ -20,7 +19,7 @@ class Vector2 {
   static to_vec3(vec) { return new Vector3(vec.x, vec.y, is.num(vec.z) ? vec.z : 0) }
 }
 
-class Vector3 {
+export class Vector3 {
   constructor(x = 0, y = 0, z = 0) { this.x = parseInt(x); this.y = parseInt(y); this.z = parseInt(z) }
   set(x = 0, y = 0, z = 0) { this.x = x; this.y = y; this.y = z }
   setX(x = 0) { this.x = x || 0 }
@@ -42,7 +41,5 @@ class Vector3 {
   static to_vec2(vec) { return new Vector2(vec.x, vec.y) }
 }
 
-function v2(x = 0, y = 0) { return new Vector2(x, y) }
-function v3(x = 0, y = 0, z = 0) { return new Vector3(x, y, z) }
-
-module.exports = { Vector2, Vector3, v2, v3 }
+export function v2(x = 0, y = 0) { return new Vector2(x, y) }
+export function v3(x = 0, y = 0, z = 0) { return new Vector3(x, y, z) }
