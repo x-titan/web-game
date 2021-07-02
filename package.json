@@ -1,0 +1,22 @@
+{
+  "name": "nonametitan_web_game",
+  "version": "0.0.5",
+  "description": "",
+  "main": "./index.js",
+  "scripts": {
+    "test": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/x-titan/web_game.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/x-titan/web_game/issues"
+  },
+  "homepage": "https://github.com/x-titan/web_game#readme",
+  "dependencies": {
+    "nonametitan_toolkit": "^1.0.9"
+  }
+}
