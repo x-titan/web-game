@@ -47,7 +47,7 @@ export class LoopMachine extends Loop {
    * @param { _p } opt
    */
   constructor(fn, opt) {
-    let r = fn.render, d = fn.draw
+    const r = fn.render, d = fn.draw
     if (!is.func(r) || !is.func(d)) throw new TypeError("Bad render functions")
     super(T => { r(T / 1000); d(1000 / T) }, opt)
   }
